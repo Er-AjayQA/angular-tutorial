@@ -1,0 +1,51 @@
+<div class="event-box">
+  <div class="title">
+    <h2>Events</h2>
+    <button class="reset-btn">Reset</button>
+  </div>
+
+  <div class="event-section">
+    <div class="left-section">
+      <!-- Click Event -->
+      <div>
+        <p><b>Mouse Events:</b></p>
+        <button class="event-btn" (click)="handleClickEvent($event)">Click Me!</button>
+        <p>{{ clickResult }}</p>
+        <button class="event-btn" (dblclick)="handleDblClickEvent($event)">Double Click Me!</button>
+        <p>{{ dblClickResult }}</p>
+
+        <div class="box-group">
+          <!-- Mouse Up & Down Event Boxes -->
+          <div
+            class="box"
+            (mousedown)="handleMouseDownEvent($event)"
+            (mouseup)="handleMouseUpEvent($event)"
+          >
+            <p>
+              <b>{{ mouseUpDownResult }}</b>
+            </p>
+          </div>
+
+          <!-- Mouse Enter & Leave Event Boxes -->
+          <div
+            class="box"
+            (mouseenter)="handleMouseEnterEvent($event)"
+            (mouseleave)="handleMouseLeaveEvent($event)"
+          >
+            <p>{{ mouseEnterLeaveResult }}</p>
+          </div>
+
+          <!-- Mouse Move & Out Event Boxes -->
+          <div
+            class="box"
+            (mousemove)="handleMouseMoveOutEvent($event)"
+            (mouseout)="handleMouseMoveOutEvent($event)"
+          >
+            <p>{{ mouseMoveOutResult }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-section">Right Section</div>
+  </div>
+</div>
