@@ -1,3 +1,24 @@
+.main-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
 .reset-btn {
   position: absolute;
   top: 10px;
@@ -15,24 +36,25 @@
   cursor: pointer;
 }
 
-.event-section {
+.box-section {
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-.left-section {
-  border: 1px solid black;
+.inputField {
+  padding: 10px 10px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  padding: 10px;
+  outline: none;
+  border: 1px solid #000;
 }
 
-.event-btn {
+.btn {
   padding: 10px 10px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -41,33 +63,12 @@
   -o-border-radius: 5px;
   outline: none;
   border: none;
-  background-color: navy;
+  background-color: rgb(8, 223, 158);
   color: #fff;
   cursor: pointer;
 }
 
-.box-group {
+.input-box {
   display: flex;
   gap: 10px;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: #eee;
-  padding: 10px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  cursor: pointer;
-}
-
-.content_body {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }

@@ -1,51 +1,43 @@
-<div class="event-box">
-  <div class="title">
-    <h2>Events</h2>
-    <button class="reset-btn">Reset</button>
+<!-- Mouse Events -->
+<div class="content_body">
+  <!-- Output Container -->
+  <div>
+    <p><b>Event Name:</b> {{ output }}</p>
+  </div>
+  <h4 style="text-align: center" class="subtitle">Mouse Events:</h4>
+
+  <!-- Click Event -->
+  <div class="sub_section horizontal_group">
+    <button class="event-btn" (click)="handleClickEvent($event)">Click Me!</button>
+    <button class="event-btn" (dblclick)="handleDblClickEvent($event)">Double Click Me!</button>
+    <button
+      class="event-btn"
+      (mousedown)="handleMouseDownEvent($event)"
+      (mouseup)="handleMouseUpEvent($event)"
+    >
+      Click & Release!
+    </button>
   </div>
 
-  <div class="event-section">
-    <div class="left-section">
-      <!-- Click Event -->
-      <div>
-        <p><b>Mouse Events:</b></p>
-        <button class="event-btn" (click)="handleClickEvent($event)">Click Me!</button>
-        <p>{{ clickResult }}</p>
-        <button class="event-btn" (dblclick)="handleDblClickEvent($event)">Double Click Me!</button>
-        <p>{{ dblClickResult }}</p>
-
-        <div class="box-group">
-          <!-- Mouse Up & Down Event Boxes -->
-          <div
-            class="box"
-            (mousedown)="handleMouseDownEvent($event)"
-            (mouseup)="handleMouseUpEvent($event)"
-          >
-            <p>
-              <b>{{ mouseUpDownResult }}</b>
-            </p>
-          </div>
-
-          <!-- Mouse Enter & Leave Event Boxes -->
-          <div
-            class="box"
-            (mouseenter)="handleMouseEnterEvent($event)"
-            (mouseleave)="handleMouseLeaveEvent($event)"
-          >
-            <p>{{ mouseEnterLeaveResult }}</p>
-          </div>
-
-          <!-- Mouse Move & Out Event Boxes -->
-          <div
-            class="box"
-            (mousemove)="handleMouseMoveOutEvent($event)"
-            (mouseout)="handleMouseMoveOutEvent($event)"
-          >
-            <p>{{ mouseMoveOutResult }}</p>
-          </div>
-        </div>
-      </div>
+  <!-- Mouse Enter & Leave Event Boxes -->
+  <div class="sub_section horizontal_group">
+    @if (output==="mouseenter"){
+    <div style="background-color: #ff0000" class="box" (mouseenter)="handleMouseEnterEvent($event)">
+      <p style="color: #fff">Enter the into the box.</p>
     </div>
-    <div class="right-section">Right Section</div>
+    } @else{
+    <div style="background-color: #0000ff" class="box" (mouseleave)="handleMouseLeaveEvent($event)">
+      <p>Bring in and out the cursor from this box</p>
+    </div>
+    }
+  </div>
+
+  <!-- Mouse Move & Out Event Boxes -->
+  <div
+    class="box"
+    (mousemove)="handleMouseMoveOutEvent($event)"
+    (mouseout)="handleMouseMoveOutEvent($event)"
+  >
+    <p>{{ mouseMoveOutResult }}</p>
   </div>
 </div>
