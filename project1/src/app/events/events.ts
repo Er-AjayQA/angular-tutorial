@@ -7,34 +7,32 @@ import { Component } from '@angular/core';
   styleUrl: './events.css',
 })
 export class Events {
-  clickResult: any;
-  dblClickResult: any;
-  mouseUpDownResult: any = 'Click & hold here to view the event name.';
+  output = '';
   mouseEnterLeaveResult: any = 'Enter the cursor in box to view event name.';
   mouseMoveOutResult: any = 'Move the mouse inside the box area to view event name.';
 
   handleClickEvent(event: any) {
-    this.clickResult = `This is ${event.type} event.`;
+    this.output = event.type;
   }
 
   handleDblClickEvent(event: any) {
-    this.dblClickResult = `This is ${event.type} event.`;
+    this.output = event.type;
   }
 
   handleMouseDownEvent(event: any) {
-    this.mouseUpDownResult = `${event.type}`;
+    this.output = event.type;
   }
 
   handleMouseUpEvent(event: any) {
-    this.mouseUpDownResult = `${event.type}`;
+    this.output = event.type;
   }
 
   handleMouseEnterEvent(event: any) {
-    this.mouseEnterLeaveResult = `This is ${event.type} event. Now take the cursor out of the box.`;
+    this.output = event.type;
   }
 
   handleMouseLeaveEvent(event: any) {
-    this.mouseEnterLeaveResult = `This is ${event.type} event.`;
+    this.output = event.type;
   }
 
   handleMouseMoveEvent(event: any) {
