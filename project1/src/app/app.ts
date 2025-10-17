@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Counter } from './counter/counter';
 import { Events } from './events/events';
 import { Getset } from './getset/getset';
+import { ConditionalStatements } from './conditional-statements/conditional-statements';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Counter, Events, Getset],
+  imports: [Counter, Events, Getset, ConditionalStatements],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

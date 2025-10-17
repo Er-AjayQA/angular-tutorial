@@ -1,0 +1,129 @@
+<!-- If & Else If Statement Events -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">If & Else-If Statement:</h4>
+  <!-- Output Container -->
+  <div>
+    <p><b>Passing Status:</b>{{ output }}</p>
+  </div>
+
+  <div style="margin-bottom: 20px">
+    <input
+      style="width: 20%"
+      type="text"
+      placeholder="Enter your scoring %"
+      class="inputField"
+      (input)="handleDisplayMessage($event)"
+    />
+
+    @if (output==="1st-division"){
+    <p>
+      🎉 Outstanding Achievement! Your hard work and dedication have truly paid off. You are among
+      the top performers!
+    </p>
+    }@else if (output==="2nd-division"){
+    <p>
+      👍 Very Good Performance! You have shown solid understanding and good effort. With a little
+      more focus, you can reach the top!
+    </p>
+    } @else if (output==="3rd-division"){
+    <p>
+      📚 Satisfactory Performance. You have cleared this level, but there is significant room for
+      improvement.
+    </p>
+    } @else if (output==="grace"){
+    <p>
+      ⚠️ Passing with Grace Marks. This is a warning sign that you need to seriously improve your
+      study habits and understanding.
+    </p>
+    } @else if (output==="fail"){
+    <p>
+      💔 Unfortunately, you did not meet the passing criteria. This is not the end - it is an
+      opportunity to learn and come back stronger.
+    </p>
+    }@else if (output===null){
+    <p></p>
+    }
+  </div>
+
+  <div>
+    <div class="btn-group">
+      <button class="btn" (click)="handleColorButton(1)">Red</button>
+      <button class="btn" (click)="handleColorButton(2)">Green</button>
+      <button class="btn" (click)="handleColorButton(3)">Blue</button>
+      <button class="btn" (click)="handleColorButton(4)">Pink</button>
+      <button class="btn" (click)="handleColorButton(5)">Orange</button>
+      <button class="btn" (click)="handleColorButton(6)">Black</button>
+    </div>
+    <input
+      style="width: 20%; margin-bottom: 20px"
+      type="number"
+      placeholder="type any number from 1 to 5"
+      class="inputField"
+      #colorInput
+      (input)="handleColorBoxes(colorInput.value)"
+      min="1"
+      [value]="colorOutput"
+    />
+
+    @if (colorOutput===1){
+    <div class="mini_boxes box_red"></div>
+    }@else if (colorOutput===2){
+    <div class="mini_boxes box_green"></div>
+    } @else if (colorOutput===3){
+    <div class="mini_boxes box_blue"></div>
+    } @else if (colorOutput===4){
+    <div class="mini_boxes box_pink"></div>
+    } @else if (colorOutput===5){
+    <div class="mini_boxes box_orange"></div>
+    }@else{
+    <div class="mini_boxes box_black"></div>
+    }
+  </div>
+
+  <div class="box_container"></div>
+</div>
+
+<!-- Switch Statement Events -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">Switch Statement:</h4>
+
+  <div>
+    <div class="btn-group">
+      <button class="btn" (click)="handleSwitchCaseOutput('red')">Red</button>
+      <button class="btn" (click)="handleSwitchCaseOutput('green')">Green</button>
+      <button class="btn" (click)="handleSwitchCaseOutput('blue')">Blue</button>
+      <button class="btn" (click)="handleSwitchCaseOutput('pink')">Pink</button>
+      <button class="btn" (click)="handleSwitchCaseOutput('orange')">Orange</button>
+      <button class="btn" (click)="handleSwitchCaseOutput('black')">Black</button>
+    </div>
+
+    <input
+      style="width: 20%; margin-bottom: 20px"
+      type="text"
+      placeholder="type any number from 1 to 5"
+      class="inputField"
+      #colorInputBox
+      (input)="handleSwitchCaseOutput(colorInputBox.value)"
+      min="1"
+      [value]="switchCaseOutput"
+    />
+
+    @switch (switchCaseOutput){ @case ("red"){
+    <div class="mini_boxes box_red"></div>
+    }@case ("green"){
+    <div class="mini_boxes box_green"></div>
+    }@case ("blue"){
+    <div class="mini_boxes box_blue"></div>
+    }@case ("pink"){
+    <div class="mini_boxes box_pink"></div>
+    }@case ("orange"){
+    <div class="mini_boxes box_orange"></div>
+    } @case ("black"){
+    <div class="mini_boxes box_black"></div>
+    }@default{
+    <p>No Matching box</p>
+    }}
+  </div>
+
+  <div class="box_container"></div>
+</div>

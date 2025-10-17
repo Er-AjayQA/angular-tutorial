@@ -7,24 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './getset.css',
 })
 export class Getset {
-  name = '';
-  showName = 'Ajay Kumar';
+  output = '';
   displayName = 'Ajay Kumar';
 
   getName(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    this.name = `${inputElement.value}`;
-  }
-
-  renderName() {
-    this.showName = this.name;
+    this.output = (event.target as HTMLInputElement).value;
   }
 
   setName() {
-    this.name = this.displayName;
+    this.output = this.displayName;
   }
 
   getEmail(val: string) {
-    console.log(val);
+    this.output = val;
   }
 }

@@ -8,38 +8,39 @@ import { Component } from '@angular/core';
 })
 export class Events {
   output = '';
-  mouseEnterLeaveResult: any = 'Enter the cursor in box to view event name.';
-  mouseMoveOutResult: any = 'Move the mouse inside the box area to view event name.';
+  bulbStatus: boolean = true;
 
-  handleClickEvent(event: any) {
-    this.output = event.type;
+  keyboardOutput: string = '';
+  keyboardBulbStatus: boolean = true;
+
+  focusOutput: string = '';
+  focusBulbStatus: boolean = true;
+
+  formTextDisplay: string = '';
+  formOutput: string = '';
+  formBulbStatus: boolean = true;
+
+  // Handle Bulb On/Off on Mouse Click
+  handleBulbOnOff() {
+    this.bulbStatus = this.bulbStatus == true ? false : true;
   }
 
-  handleDblClickEvent(event: any) {
-    this.output = event.type;
+  // Handle Keyboard Bulb On/Off
+  handleKeyboardBulbOnOff(event: Event) {
+    this.keyboardOutput = event.type;
+    this.keyboardBulbStatus = this.keyboardBulbStatus == true ? false : true;
   }
 
-  handleMouseDownEvent(event: any) {
-    this.output = event.type;
+  // Handle Focus
+  handleFocusBulbOnOff(event: Event) {
+    this.focusOutput = event.type;
+    this.focusBulbStatus = this.focusBulbStatus == true ? false : true;
   }
 
-  handleMouseUpEvent(event: any) {
-    this.output = event.type;
-  }
-
-  handleMouseEnterEvent(event: any) {
-    this.output = event.type;
-  }
-
-  handleMouseLeaveEvent(event: any) {
-    this.output = event.type;
-  }
-
-  handleMouseMoveEvent(event: any) {
-    this.mouseMoveOutResult = `This is ${event.type} event. Now take the cursor out of the box.`;
-  }
-
-  handleMouseMoveOutEvent(event: any) {
-    this.mouseMoveOutResult = `This is ${event.type} event. Now take the cursor out of the box.`;
+  // Handle Form
+  handleFormBulbOnOff(event: any) {
+    this.formOutput = event.type;
+    this.formTextDisplay = (event.target as HTMLInputElement).value;
+    this.formBulbStatus = this.formBulbStatus == true ? false : true;
   }
 }

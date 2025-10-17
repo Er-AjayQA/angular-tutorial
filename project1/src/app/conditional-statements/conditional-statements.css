@@ -1,0 +1,44 @@
+.box_container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.mini_boxes {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+}
+
+.mini_boxes:hover {
+  box-shadow: 0.2px 0.5px 30px 2px gray;
+}
+
+.box_red {
+  background-color: #ff0000;
+}
+
+.box_green {
+  background-color: #00ff00;
+}
+
+.box_blue {
+  background-color: #0000ff;
+}
+
+.box_pink {
+  background-color: pink;
+}
+
+.box_orange {
+  background-color: orange;
+}
+
+.box_black {
+  background-color: #000;
+}

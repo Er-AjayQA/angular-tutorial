@@ -1,29 +1,17 @@
 <div class="main-box">
-  <div class="title">
-    <h2>Get Set</h2>
-    <button class="reset-btn">Reset</button>
+  <!-- Output Container -->
+  <div>
+    <p><b>Event Name:</b>{{ output }}</p>
   </div>
 
-  <div class="box-section">
-    <div class="input-box">
-      <input
-        type="text"
-        placeholder="enter username"
-        class="inputField"
-        (input)="getName($event)"
-        name="name"
-      />
-      <p>{{ name }}</p>
+  <div class="input-box">
+    <input type="text" placeholder="enter username" class="inputField" (input)="getName($event)" />
 
-      <input type="email" placeholder="enter username" class="inputField" #emailInput />
-      <p>{{ showName }}</p>
-    </div>
-    <br />
-    <br />
-    <div>
-      <button class="btn" (click)="renderName()">Get Value</button>
-      <button class="btn" (click)="setName()">Set Value</button>
-      <button class="btn" (click)="getEmail(emailInput.value)">Get Email</button>
-    </div>
+    <input type="email" placeholder="enter email" class="inputField" #emailInput />
+  </div>
+
+  <div class="btn-group">
+    <button class="btn" (click)="setName()">Set Value</button>
+    <button class="btn" (click)="getEmail(emailInput.value)">Get Email</button>
   </div>
 </div>
