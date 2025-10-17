@@ -1,43 +1,245 @@
 <!-- Mouse Events -->
-<div class="content_body">
+<div style="position: relative; margin-top: 20px" class="content_body">
   <!-- Output Container -->
   <div>
     <p><b>Event Name:</b> {{ output }}</p>
   </div>
   <h4 style="text-align: center" class="subtitle">Mouse Events:</h4>
 
-  <!-- Click Event -->
+  <!-- Bulb Image Container -->
+  <div class="bulb_container">
+    <img
+      [src]="bulbStatus ? 'assets/images/light-bulb-on.png' : 'assets/images/light-bulb-off.png'"
+      [alt]="bulbStatus ? 'Bulb On' : 'Bulb Off'"
+    />
+  </div>
+
+  <!-- Mouse Click Events -->
   <div class="sub_section horizontal_group">
-    <button class="event-btn" (click)="handleClickEvent($event)">Click Me!</button>
-    <button class="event-btn" (dblclick)="handleDblClickEvent($event)">Double Click Me!</button>
-    <button
-      class="event-btn"
-      (mousedown)="handleMouseDownEvent($event)"
-      (mouseup)="handleMouseUpEvent($event)"
-    >
+    <button class="event-btn" (click)="handleBulbOnOff()">
+      {{ bulbStatus ? 'Switch Off Bulb!' : 'Switch On Bulb!' }}
+    </button>
+
+    <button class="event-btn" (dblclick)="handleBulbOnOff()">Double Click to toggle bulb!</button>
+    <button class="event-btn" (mousedown)="handleBulbOnOff()" (mouseup)="handleBulbOnOff()">
       Click & Release!
     </button>
+    <button class="event-btn" (contextmenu)="handleBulbOnOff()">Right Click!</button>
   </div>
 
-  <!-- Mouse Enter & Leave Event Boxes -->
+  <!-- Mouse Enter, Mouse Leave, Mouse Move & Mouse Out Event Boxes -->
   <div class="sub_section horizontal_group">
-    @if (output==="mouseenter"){
-    <div style="background-color: #ff0000" class="box" (mouseenter)="handleMouseEnterEvent($event)">
-      <p style="color: #fff">Enter the into the box.</p>
+    <div class="box" (mouseenter)="handleBulbOnOff()">
+      <div class="box-inside-box">
+        <p>Mouse enters the box to switch ON/OFF the bulb.</p>
+      </div>
     </div>
-    } @else{
-    <div style="background-color: #0000ff" class="box" (mouseleave)="handleMouseLeaveEvent($event)">
-      <p>Bring in and out the cursor from this box</p>
+
+    <div class="box" (mouseleave)="handleBulbOnOff()">
+      <div class="box-inside-box">
+        <p>Mouse leaves the box to switch ON/OFF the bulb.</p>
+      </div>
     </div>
-    }
+
+    <div class="box" (mouseover)="handleBulbOnOff()">
+      <div class="box-inside-box">
+        <p>Mouse hovers over the box to switch ON/OFF the bulb.</p>
+      </div>
+    </div>
+
+    <div class="box" (mousemove)="handleBulbOnOff()">
+      <div class="box-inside-box">
+        <p>Mouse moves inside the box to switch ON/OFF the bulb.</p>
+      </div>
+    </div>
+
+    <div class="box" (mouseout)="handleBulbOnOff()">
+      <div class="box-inside-box">
+        <p>Mouse moves out of the box to switch ON/OFF the bulb.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Keyboard Events -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <!-- Output Container -->
+  <div>
+    <p><b>Event Name:</b> {{ keyboardOutput }}</p>
+  </div>
+  <h4 style="text-align: center" class="subtitle">Keyboard Events:</h4>
+
+  <!-- Bulb Image Container -->
+  <div class="bulb_container">
+    <img
+      [src]="
+        keyboardBulbStatus ? 'assets/images/light-bulb-on.png' : 'assets/images/light-bulb-off.png'
+      "
+      [alt]="keyboardBulbStatus ? 'Bulb On' : 'Bulb Off'"
+    />
   </div>
 
-  <!-- Mouse Move & Out Event Boxes -->
-  <div
-    class="box"
-    (mousemove)="handleMouseMoveOutEvent($event)"
-    (mouseout)="handleMouseMoveOutEvent($event)"
-  >
-    <p>{{ mouseMoveOutResult }}</p>
+  <!-- Keyboard Events -->
+  <div class="sub_section horizontal_group">
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="press any key to switch on/off the bulb"
+      (keydown)="handleKeyboardBulbOnOff($event)"
+    />
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="press & release any key to switch on/off the bulb"
+      (keyup)="handleKeyboardBulbOnOff($event)"
+    />
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="press any key to switch on/off the bulb"
+      (keypress)="handleKeyboardBulbOnOff($event)"
+    />
+  </div>
+</div>
+
+<!-- Focus Events -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <!-- Output Container -->
+  <div>
+    <p><b>Event Name:</b> {{ focusOutput }}</p>
+  </div>
+  <h4 style="text-align: center" class="subtitle">Focus Events:</h4>
+
+  <!-- Bulb Image Container -->
+  <div class="bulb_container">
+    <img
+      [src]="
+        focusBulbStatus ? 'assets/images/light-bulb-on.png' : 'assets/images/light-bulb-off.png'
+      "
+      [alt]="focusBulbStatus ? 'Bulb On' : 'Bulb Off'"
+    />
+  </div>
+
+  <!-- Focus Events -->
+  <div style="flex-direction: column" class="sub_section">
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="focus here to switch on/off the bulb"
+      (focus)="handleFocusBulbOnOff($event)"
+    />
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="release the focus to switch on/off the bulb"
+      (blur)="handleFocusBulbOnOff($event)"
+    />
+
+    <!-- FocusIn -->
+    <div
+      style="
+        width: 60%;
+        background-color: cadetblue;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+      "
+      class="focus_box"
+      (focusin)="handleFocusBulbOnOff($event)"
+    >
+      <div style="flex-basis: 30%">
+        <p>FocusIn event is applied on container, not on input fields.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; flex-basis: 70%">
+        <input
+          style="margin-bottom: 10px"
+          class="custom_input"
+          type="text"
+          placeholder="focusIn to switch on/off the bulb"
+        />
+        <input
+          style="margin-bottom: 10px"
+          class="custom_input"
+          type="text"
+          placeholder="focusIn to switch on/off the bulb"
+        />
+        <input class="custom_input" type="text" placeholder="focusIn to switch on/off the bulb" />
+      </div>
+    </div>
+
+    <!-- FocusOut -->
+    <div
+      style="
+        width: 60%;
+        background-color: cadetblue;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+      "
+      class="focus_box"
+      (focusout)="handleFocusBulbOnOff($event)"
+    >
+      <div style="flex-basis: 30%">
+        <p>FocusOut event is applied on container, not on input fields.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; flex-basis: 70%">
+        <input
+          style="margin-bottom: 10px"
+          class="custom_input"
+          type="text"
+          placeholder="focusOut to switch on/off the bulb"
+        />
+        <input
+          style="margin-bottom: 10px"
+          class="custom_input"
+          type="text"
+          placeholder="focusOut to switch on/off the bulb"
+        />
+        <input class="custom_input" type="text" placeholder="focusOut to switch on/off the bulb" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form Events -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <!-- Output Container -->
+  <div>
+    <p><b>Event Name:</b> {{ formOutput }}</p>
+    <p><b>Display Text:</b> {{ formTextDisplay }}</p>
+  </div>
+  <h4 style="text-align: center" class="subtitle">Form Events:</h4>
+
+  <!-- Bulb Image Container -->
+  <div class="bulb_container">
+    <img
+      [src]="
+        formBulbStatus ? 'assets/images/light-bulb-on.png' : 'assets/images/light-bulb-off.png'
+      "
+      [alt]="formBulbStatus ? 'Bulb On' : 'Bulb Off'"
+    />
+  </div>
+
+  <!-- Form Events -->
+  <div style="flex-direction: column" class="sub_section">
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="type here to switch on/off the bulb"
+      (input)="handleFormBulbOnOff($event)"
+    />
+    <input
+      class="custom_input"
+      type="text"
+      placeholder="type here and click outside the input field to loose focus to switch on/off the bulb"
+      (change)="handleFormBulbOnOff($event)"
+    />
+
+    <input
+      class="custom_input"
+      type="text"
+      value="This is the dummy text. You can select the text inside the input field and view the changes."
+      (select)="handleFormBulbOnOff($event)"
+    />
   </div>
 </div>
