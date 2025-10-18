@@ -1,0 +1,48 @@
+<!-- If & Else If Statement Events -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">For Loop</h4>
+  <!-- Output Container -->
+
+  <div>
+    <p>Faculty Name</p>
+    <div>
+      @for(user of users; track user){ <span>{{ user }}</span> <br />}
+    </div>
+  </div>
+
+  <div>
+    <p>Students Name</p>
+    <div>
+      <table class="student_table">
+        <thead>
+          <tr>
+            <th>S.No.</th>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Stream</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for(student of students; track student; let i=$index; let first=$first){
+          <tr [class.first_row]="first">
+            <td style="text-align: center">
+              {{ i + 1 }}
+            </td>
+            <td style="text-align: center">
+              {{ student.name }}
+            </td>
+            <td style="text-align: center">
+              {{ student.rollNo }}
+            </td>
+            <td style="text-align: center">
+              {{ student.stream }}
+            </td>
+          </tr>
+
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
