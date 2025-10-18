@@ -5,10 +5,11 @@ import { Events } from './events/events';
 import { Getset } from './getset/getset';
 import { ConditionalStatements } from './conditional-statements/conditional-statements';
 import { Looping } from './looping/looping';
+import { SignalsCompnent } from './signals-compnent/signals-compnent';
 
 @Component({
   selector: 'app-root',
-  imports: [Counter, Events, Getset, ConditionalStatements, Looping],
+  imports: [Counter, Events, Getset, ConditionalStatements, Looping, SignalsCompnent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

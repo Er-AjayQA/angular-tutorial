@@ -1,0 +1,94 @@
+<!-- Signals Basic -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">Signals</h4>
+  <!-- Output Container -->
+
+  <div>
+    <p><b>Normal Variable:</b> {{ result }}</p>
+    <p><b>Signal Variable:</b> {{ count() }}</p>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn" (click)="count.set(50)">Increase Signal</button>
+    <button class="btn" (click)="updateSignalValue()">Update Signal Value</button>
+    <button class="btn" (click)="updateNormalValue()">Update Normal Value</button>
+    <!-- <button class="btn" (click)="result++">Increase Normal</button> This gives error -->
+  </div>
+
+  <hr />
+</div>
+
+<!-- Signals Counter -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">Counter</h4>
+  <!-- Output Container -->
+
+  <div>
+    <div>
+      <h4 style="text-align: center">{{ counter() }}</h4>
+    </div>
+    <div class="btn-group">
+      <!-- Way 1 -->
+      <!-- <button class="btn" (click)="handleCounter('dec')">Decrement</button>
+      <button class="btn" (click)="handleCounter('reset')">Reset</button>
+      <button class="btn" (click)="handleCounter('inc')">Increment</button> -->
+
+      <!-- Way 2 -->
+      <button class="btn" (click)="counter.set(counter() - 1)">Decrement</button>
+      <button class="btn" (click)="counter.set(0)">Reset</button>
+      <button class="btn" (click)="counter.set(counter() + 1)">Increment</button>
+      <!-- <button class="btn" (click)="result++">Increase Normal</button> This gives error -->
+    </div>
+  </div>
+</div>
+
+<!-- Define 2 Data Type to Signal Variables -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">Counter</h4>
+  <!-- Output Container -->
+
+  <div>
+    <h3>Computed Signal Data: {{ value() }}</h3>
+    <h3>Writable Signal Data: {{ data() }}</h3>
+  </div>
+
+  <div>
+    <div>
+      <input
+        type="text"
+        (change)="updateDataValue($event)"
+        class="inputField"
+        style="width: 30%"
+        placeholder="Enter any value of your choice...."
+      />
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" (click)="data.set(0)">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- Define 2 Data Type to Signal Variables -->
+<div style="position: relative; margin-top: 20px" class="content_body">
+  <h4 style="text-align: center" class="subtitle">Computed Signals</h4>
+  <!-- Output Container -->
+
+  <div></div>
+
+  <div>
+    <div>
+      <input
+        type="text"
+        (change)="updateDataValue($event)"
+        class="inputField"
+        style="width: 30%"
+        placeholder="Enter any value of your choice...."
+      />
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" (click)="showValue()">Show Value</button>
+    </div>
+  </div>
+</div>
