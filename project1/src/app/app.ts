@@ -6,10 +6,23 @@ import { Getset } from './getset/getset';
 import { ConditionalStatements } from './conditional-statements/conditional-statements';
 import { Looping } from './looping/looping';
 import { SignalsCompnent } from './signals-compnent/signals-compnent';
+import { EffectComponent } from './effect-component/effect-component';
+import { ContextualVariables } from './contextual-variables/contextual-variables';
+import { TwoWayBinding } from './two-way-binding/two-way-binding';
 
 @Component({
   selector: 'app-root',
-  imports: [Counter, Events, Getset, ConditionalStatements, Looping, SignalsCompnent],
+  imports: [
+    Counter,
+    Events,
+    Getset,
+    ConditionalStatements,
+    Looping,
+    SignalsCompnent,
+    EffectComponent,
+    ContextualVariables,
+    TwoWayBinding,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
