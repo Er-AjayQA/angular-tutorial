@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="title_container">
+    <h2>ToDo List</h2>
+  </div>
+  <div class="task_input_container">
+    <input [(ngModel)]="task" type="text" placeholder="Enter new task..." class="task_input" />
+    <button (click)="addNewTask()" class="btn">Add Task</button>
+  </div>
+</div>
+
+<div class="container">
+  @for(tasks of taskList; track tasks.id){
+  <div class="task_container">
+    @if($even){
+    <div class="task_list" style="background-color: aquamarine">
+      <h4>{{ tasks.task }}</h4>
+      <div>
+        <button class="btn edit_btn">Edit</button>
+        <button (click)="deleteTask(tasks.id)" class="btn delete_btn">Delete</button>
+      </div>
+    </div>
+    }@else if($odd){
+    <div class="task_list" style="background-color: bisque">
+      <h4>{{ tasks.task }}</h4>
+      <div>
+        <button class="btn edit_btn">Edit</button>
+        <button (click)="deleteTask(tasks.id)" class="btn delete_btn">Delete</button>
+      </div>
+    </div>
+    }
+  </div>
+  } @empty{
+  <p style="text-align: center">No tasks added yet!</p>
+  }
+</div>

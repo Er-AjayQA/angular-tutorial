@@ -1,0 +1,18 @@
+<div>
+  <h3>Users List</h3>
+
+  @for(user of users; track user; let i=$index){ @if(i===0){
+  <p>We have {{ $count }} users.</p>
+  }
+
+  <div>
+    @if ($even){
+    <p style="background-color: aquamarine">{{ i + 1 }}. {{ user }}</p>
+    }@else if($odd){
+    <p style="background-color: gray">{{ i + 1 }}. {{ user }}</p>
+    }
+  </div>
+  } @empty(){
+  <p>No users found</p>
+  }
+</div>

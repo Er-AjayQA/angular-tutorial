@@ -1,0 +1,12 @@
+<div>
+  <p style="text-align: center">{{ counter() }}</p>
+  <div class="btn-group">
+    <button class="btn btn-red" (click)="toggleBox()">Toggle Box</button>
+  </div>
+
+  @if(displayBox){
+  <div class="magic_box">
+    <p>Hello Guys!</p>
+  </div>
+  }
+</div>
