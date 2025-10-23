@@ -9,6 +9,8 @@ import { SignalsCompnent } from './signals-compnent/signals-compnent';
 import { EffectComponent } from './effect-component/effect-component';
 import { ContextualVariables } from './contextual-variables/contextual-variables';
 import { TwoWayBinding } from './two-way-binding/two-way-binding';
+import { DynamicStyling } from './dynamic-styling/dynamic-styling';
+import { DirectivesComponent } from './directives-component/directives-component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,8 @@ import { TwoWayBinding } from './two-way-binding/two-way-binding';
     EffectComponent,
     ContextualVariables,
     TwoWayBinding,
+    DynamicStyling,
+    DirectivesComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

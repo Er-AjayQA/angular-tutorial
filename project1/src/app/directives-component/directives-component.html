@@ -1,0 +1,163 @@
+<div>
+  <h4>What is directives?</h4>
+  <ul>
+    <li>
+      Directive is a class that adds additional behaviours to the elements in your application.
+    </li>
+    <li>A feature in angular that help you to provide more power to DOM elements.</li>
+    <li>
+      Examples:
+      <ul>
+        <li>if-else condition</li>
+        <li>For loop</li>
+        <li>Add style</li>
+        <li>ngIf</li>
+        <li>ngFor</li>
+        <li>ngStyle</li>
+        <li>ngSwitch</li>
+        <li>ngClass</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h4>Type of directives?</h4>
+  <ul>
+    <li>
+      Component Directives
+      <ul>
+        <li>The most common type of directives.</li>
+        <li>Used in component template files.</li>
+      </ul>
+    </li>
+    <li>
+      Structural Directives
+      <ul>
+        <li>Change the structure of the DOM by adding, removing or manipulating elements.</li>
+      </ul>
+    </li>
+    <li>
+      Attribute Directives
+      <ul>
+        <li>Modify the appearance or behaviour of an existing element.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- ngIf Directive -->
+<div>
+  <h2 style="background-color: gray; padding: 10px 20px">ngIf</h2>
+
+  <div>
+    <button *ngIf="login; else elseBlock" (click)="toggleLogin()">Login</button>
+
+    <ng-template #elseBlock>
+      <button (click)="toggleLogin()">Logout</button>
+    </ng-template>
+  </div>
+  <hr />
+  <div>
+    <h3 *ngIf="show">Heading Tag</h3>
+  </div>
+  <hr />
+  <div>
+    <button (click)="changeHeading()">Change Heading</button>
+    <div *ngIf="heading() == 1">
+      <h1>Heading 1</h1>
+    </div>
+    <div *ngIf="heading() == 2">
+      <h2>Heading 2</h2>
+    </div>
+    <div *ngIf="heading() == 3">
+      <h3>Heading 3</h3>
+    </div>
+    <div *ngIf="heading() == 4">
+      <h4>Heading 4</h4>
+    </div>
+    <div *ngIf="heading() == 5">
+      <h5>Heading 5</h5>
+    </div>
+    <div *ngIf="heading() == 6">
+      <h6>Heading 6</h6>
+    </div>
+  </div>
+</div>
+
+<!-- ngFor Directive -->
+<div>
+  <h2 style="background-color: gray; padding: 10px 20px">ngFor</h2>
+
+  <div>
+    <ul>
+      <li *ngFor="let student of students">
+        {{ student }}
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <table border="1" style="border-collapse: collapse; width: 100%">
+      <thead>
+        <tr style="background-color: #f2f2f2">
+          <th style="padding: 8px">S.No</th>
+          <th style="padding: 8px">Name</th>
+          <th style="padding: 8px">Age</th>
+          <th style="padding: 8px">EmailId</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentsData; let i = index">
+          <td style="padding: 8px; text-align: center">{{ i + 1 }}</td>
+          <td style="padding: 8px">{{ student.name }}</td>
+          <td style="padding: 8px; text-align: center">{{ student.age }}</td>
+          <td style="padding: 8px">{{ student.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ngSwitch Directive -->
+<div>
+  <h2 style="background-color: gray; padding: 10px 20px">ngSwitch</h2>
+
+  <div style="display: flex; gap: 10px; margin: 0 0 20px 0">
+    <button
+      *ngFor="let colorBox of colorBoxes"
+      style="cursor: pointer; padding: 5px 10px; border-radius: 10px; color: #fff"
+      [style.backgroundColor]="colorBox === currentColorBox ? colorBox : 'gray'"
+      (click)="handleChangeColor(colorBox)"
+    >
+      {{ colorBox }}
+    </button>
+  </div>
+
+  <div [ngSwitch]="currentColorBox">
+    <div
+      *ngSwitchCase="'red'"
+      style="width: 150px; height: 150px; border-radius: 10px; background-color: red"
+    ></div>
+    <div
+      *ngSwitchCase="'blue'"
+      style="width: 150px; height: 150px; border-radius: 10px; background-color: blue"
+    ></div>
+    <div
+      *ngSwitchCase="'green'"
+      style="width: 150px; height: 150px; border-radius: 10px; background-color: green"
+    ></div>
+    <div
+      *ngSwitchCase="'yellow'"
+      style="width: 150px; height: 150px; border-radius: 10px; background-color: yellow"
+    ></div>
+    <div
+      *ngSwitchCase="'pink'"
+      style="width: 150px; height: 150px; border-radius: 10px; background-color: pink"
+    ></div>
+    <div
+      *ngSwitchCase="'black'"
+      style="width: 150px; height: 150px; border-radius: 10px; background-color: black"
+    ></div>
+  </div>
+</div>
